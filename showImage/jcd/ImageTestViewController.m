@@ -85,6 +85,17 @@
     self.backButton = btn;
 
 }
+
+- (void) backWithRemoveSelf{
+    [UIView animateWithDuration:.3 animations:^{
+        CGRect frame = self.view.frame;
+        frame.origin.x = SCREEN_WIDTH;
+        self.view.frame = frame;
+    } completion:^(BOOL finished) {
+        [self closeSelfView];
+    }];
+}
+
 - (void) closeSelfView{
     [self.view removeFromSuperview];
     [self removeFromParentViewController];
@@ -161,6 +172,8 @@
     if (selectedNumber-1>=0) {
         selectedNumber--;
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:selectedNumber inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:true];
+    }else{
+        [self backWithRemoveSelf];
     }
 }
 

@@ -27,11 +27,12 @@
 }
 
 - (IBAction)buttonClick:(UIButton *)sender {
-    ImageTestViewController *svc = ImageTestViewController.new;
+    __block ImageTestViewController *svc = ImageTestViewController.new;
     [svc didMoveToParentViewController:self];
     svc.view.frame = self.view.bounds;
     [self addChildViewController:svc];
     [self.view addSubview:svc.view];
+    
 }
 
 
