@@ -177,7 +177,6 @@
     }
 }
 
-
 - (UIImageView *)showImage{
     NSInteger number = self.collectionView.contentOffset.x/SCREEN_WIDTH;
     IconCollectionViewCell *cell = (IconCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:number inSection:0]];
